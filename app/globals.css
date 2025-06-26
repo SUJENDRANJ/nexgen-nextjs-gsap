@@ -1,11 +1,8 @@
-/* @import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -17,69 +14,62 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-} */
-
-/* --------------- */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
 }
 
+/* Fade-in animation utility for Tailwind */
+@layer utilities {
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Base Reset & Global Styles */
+/* body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+} */
+
 body {
-  font-family: "Saans TRIAL";
+  font-family: "Saans TRIAL", sans-serif;
   background: #000;
 }
 
-a,
-p {
-  color: #000;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 100%;
-}
-
-.page-content {
+/* Hero Video Styling */
+.hero-video {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  padding: 6em 2em;
+  object-fit: cover;
+  border-radius: 1rem;
 }
 
-.page-content.hero {
-  background: url("./hero.jpg") no-repeat 50% 50%;
-  background-size: cover;
-}
-
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 5vw;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  color: #fff;
-}
-
-h1 sup {
-  position: relative;
-  top: -20px;
-  left: 10px;
-  font-size: 1.5vw;
-  letter-spacing: 0;
-}
-
-@media (max-width: 900px) {
-  .page-content h1 {
-    font-size: 10vw;
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
   }
-
-  h1 sup {
-    font-size: 4vw;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.animate-fade-slide {
+  animation: fadeSlide 0.4s ease-in-out;
 }

@@ -1,7 +1,7 @@
 const Lab = () => {
   return (
-    <div className="page-content ">
-      <h1>Lab</h1>
+    <div className="text-white flex items-center justify-center h-[600px]">
+      <h1 className="text-4xl uppercase">Lab Page</h1>
     </div>
   );
 };

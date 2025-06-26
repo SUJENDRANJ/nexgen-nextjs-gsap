@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import "./menu.css";
 
+import { usePathname } from "next/navigation";
+
 const menuLinks = [
   { path: "/", label: "Home" },
   { path: "/work", label: "Work" },
@@ -20,6 +22,12 @@ const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  // Inside the component
+  const pathname = usePathname();
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   useGSAP(
     () => {
@@ -77,7 +85,9 @@ const Menu = () => {
           <Link href="/">Nexgen Nextopia</Link>
         </div>
         <div className="menu-open" onClick={toggleMenu}>
-          <p>Menu</p>
+          <p className="text-black no-underline uppercase text-sm font-medium leading-none">
+            Menu
+          </p>
         </div>
       </div>
 
@@ -88,12 +98,16 @@ const Menu = () => {
             <Link href="/">Nexgen Nextopia</Link>
           </div>
           <div className="menu-close" onClick={toggleMenu}>
-            <p>Close</p>
+            <p className="text-black no-underline uppercase text-sm font-medium leading-none">
+              Close
+            </p>
           </div>
         </div>
 
         <div className="menu-close-icon" onClick={toggleMenu}>
-          <p>&#x2715;</p>
+          <p className="text-black no-underline uppercase text-sm font-medium leading-none">
+            &#x2715;
+          </p>
         </div>
 
         <div className="menu-copy">
@@ -117,8 +131,12 @@ const Menu = () => {
               <a href="#">X &#8599;</a>
             </div>
             <div className="menu-info-col">
-              <p>nexgen@nextopia.com</p>
-              <p>+91 92345 67890</p>
+              <p className="text-black no-underline uppercase text-sm font-medium leading-none">
+                nexgen@nextopia.com
+              </p>
+              <p className="text-black no-underline uppercase text-sm font-medium leading-none">
+                +91 92345 67890
+              </p>
             </div>
           </div>
         </div>

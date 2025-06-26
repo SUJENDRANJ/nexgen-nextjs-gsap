@@ -1,7 +1,7 @@
 const Work = () => {
   return (
-    <div className="page-content ">
-      <h1>Work</h1>
+    <div className="text-white flex items-center justify-center h-[600px]">
+      <h1 className="text-4xl uppercase">Work Page</h1>
     </div>
   );
 };
